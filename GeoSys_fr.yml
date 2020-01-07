@@ -17,13 +17,7 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       parameters:
         - schema:
             type: string
@@ -43,37 +37,19 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                title: message_erreur
-                type: object
-                properties:
-                  code:
-                    type: string
-                  message:
-                    type: string
+                $ref: '#/components/schemas/message_erreur'
         '401':
           description: Unauthorized
           content:
             application/json:
               schema:
-                title: message_erreur
-                type: object
-                properties:
-                  code:
-                    type: string
-                  message:
-                    type: string
+                $ref: '#/components/schemas/message_erreur'
       parameters:
         - schema:
             type: string
@@ -95,25 +71,13 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
         '401':
           description: Unauthorized
           content:
             application/json:
               schema:
-                title: message_erreur
-                type: object
-                properties:
-                  code:
-                    type: string
-                  message:
-                    type: string
+                $ref: '#/components/schemas/message_erreur'
       requestBody:
         content:
           application/octet-stream:
@@ -149,25 +113,13 @@ paths:
           content:
             application/json:
               schema:
-                title: message_erreur
-                type: object
-                properties:
-                  code:
-                    type: string
-                  message:
-                    type: string
+                $ref: '#/components/schemas/message_erreur'
         '404':
           description: Not Found
           content:
             application/json:
               schema:
-                title: message_erreur
-                type: object
-                properties:
-                  code:
-                    type: string
-                  message:
-                    type: string
+                $ref: '#/components/schemas/message_erreur'
       parameters:
         - schema:
             type: string
@@ -187,13 +139,7 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
         '401':
           description: Unauthorized
           content:
@@ -227,19 +173,7 @@ paths:
           content:
             application/json:
               schema:
-                title: securite_reponse_login
-                type: object
-                properties:
-                  access_token:
-                    type: string
-                  token_type:
-                    type: string
-                  expires_in:
-                    type: integer
-                  scope:
-                    type: array
-                    items:
-                      type: string
+                $ref: '#/components/schemas/securite_reponse_login'
               examples:
                 exTokenReturn:
                   value:
@@ -293,26 +227,12 @@ paths:
           content:
             application/json:
               schema:
-                title: systeme_ress_retour
-                type: object
-                properties:
-                  valeur:
-                    type: object
+                $ref: '#/components/schemas/systeme_ress_retour'
       requestBody:
         content:
           application/json:
             schema:
-              title: systeme_ress_requete
-              type: object
-              properties:
-                fichiers:
-                  type: array
-                  items:
-                    type: string
-                chemin_recherche:
-                  type: array
-                  items:
-                    type: string
+              $ref: '#/components/schemas/systeme_ress_requete'
       description: "Retourne une ressource (paramètre ou un groupe de paramètres) à partir d'une liste de fichier."
       tags:
         - systeme
@@ -327,19 +247,7 @@ paths:
               schema:
                 type: array
                 items:
-                  title: suivi_prod-code
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                    id_liste_code:
-                      type: integer
-                    nom:
-                      type: string
-                    desc_en:
-                      type: string
-                    desc_fr:
-                      type: string
+                  $ref: '#/components/schemas/suivi_prod-code'
               examples:
                 exCodes_01:
                   value:
@@ -358,13 +266,7 @@ paths:
           content:
             application/json:
               schema:
-                title: message_erreur
-                type: object
-                properties:
-                  code:
-                    type: string
-                  message:
-                    type: string
+                $ref: '#/components/schemas/message_erreur'
       parameters:
         - schema:
             type: string
@@ -407,29 +309,13 @@ paths:
               schema:
                 type: array
                 items:
-                  title: suivi_prod-code_list
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                    nom:
-                      type: string
-                    desc_en:
-                      type: string
-                    desc_fr:
-                      type: string
+                  $ref: '#/components/schemas/suivi_prod-code_list'
         '404':
           description: Not Found
           content:
             application/json:
               schema:
-                title: message_erreur
-                type: object
-                properties:
-                  code:
-                    type: string
-                  message:
-                    type: string
+                $ref: '#/components/schemas/message_erreur'
       description: Obtient un enregistrement de la table suivi_prod.list_codes.
       operationId: get-suivi-prod-code_list
       parameters:
@@ -454,166 +340,20 @@ paths:
             application/json:
               schema:
                 oneOf:
-                  - title: suivi_prod-unite_travail_2-no_rel
-                    type: object
-                    properties:
-                      etampe:
-                        type: string
-                      dt_c:
-                        type: string
-                      dt_m:
-                        type: string
-                      id:
-                        type: string
-                      id_lot:
-                        type: string
-                      date_prevue_fin:
-                        type: string
-                      date_debut_fin:
-                        type: string
-                      where_clause:
-                        type: string
-                      geom:
-                        type: string
-                  - title: suivi_prod-unite_travail_2-full_rel
-                    type: object
-                    properties:
-                      unite_travail_2:
-                        title: suivi_prod-unite_travail_2-no_rel
-                        type: object
-                        properties:
-                          etampe:
-                            type: string
-                          dt_c:
-                            type: string
-                          dt_m:
-                            type: string
-                          id:
-                            type: string
-                          id_lot:
-                            type: string
-                          date_prevue_fin:
-                            type: string
-                          date_debut_fin:
-                            type: string
-                          where_clause:
-                            type: string
-                          geom:
-                            type: string
-                      relation:
-                        type: object
-                        properties:
-                          etape_ut:
-                            type: array
-                            items:
-                              title: suivi_prod-etape_ut
-                              type: object
-                              properties:
-                                etampe:
-                                  type: string
-                                dt_c:
-                                  type: string
-                                dt_m:
-                                  type: string
-                                id:
-                                  type: string
-                                id_unite_travail:
-                                  type: string
-                                nom_etape_cl:
-                                  type: integer
-                                description:
-                                  type: string
-                                operateur:
-                                  type: string
-                                date_debut:
-                                  type: string
-                                date_fin:
-                                  type: string
-                                statut_etape_cl:
-                                  type: integer
-                          sous_unite_travail:
-                            type: array
-                            items:
-                              title: suivi_prod-sous_unite_travail-full_rel
-                              type: object
-                              properties:
-                                sous_unite_travail:
-                                  title: suivi_prod-sous_unite_travail-no_rel
-                                  type: object
-                                  properties:
-                                    etampe:
-                                      type: string
-                                    dt_c:
-                                      type: string
-                                    dt_m:
-                                      type: string
-                                    id:
-                                      type: string
-                                    id_unite_travail:
-                                      type: string
-                                    date_prevue_fin:
-                                      type: string
-                                    date_debut:
-                                      type: string
-                                    date_fin:
-                                      type: string
-                                relation:
-                                  type: object
-                                  properties:
-                                    etape_sut:
-                                      type: array
-                                      items:
-                                        title: suivi_prod-etape_sut
-                                        type: object
-                                        properties:
-                                          etampe:
-                                            type: string
-                                          dt_c:
-                                            type: string
-                                          dt_m:
-                                            type: string
-                                          id:
-                                            type: string
-                                          id_unite_travail:
-                                            type: string
-                                          nom_etape_cl:
-                                            type: integer
-                                          description:
-                                            type: string
-                                          operateur:
-                                            type: string
-                                          date_debut:
-                                            type: string
-                                          date_fin:
-                                            type: string
-                                          statut_etape_cl:
-                                            type: integer
-                                          id_sous_unite_travail:
-                                            type: string
+                  - $ref: '#/components/schemas/suivi_prod-unite_travail_2-no_rel'
+                  - $ref: '#/components/schemas/suivi_prod-unite_travail_2-full_rel'
         '404':
           description: Not Found
           content:
             application/json:
               schema:
-                title: message_erreur
-                type: object
-                properties:
-                  code:
-                    type: string
-                  message:
-                    type: string
+                $ref: '#/components/schemas/message_erreur'
         '500':
           description: Internal Server Error
           content:
             application/json:
               schema:
-                title: message_erreur
-                type: object
-                properties:
-                  code:
-                    type: string
-                  message:
-                    type: string
+                $ref: '#/components/schemas/message_erreur'
       parameters:
         - schema:
             type: boolean
@@ -642,13 +382,7 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       operationId: delete-suivi-prod-unite-travail-id
       description: Delete a record in table unite_travail_2.
       tags:
@@ -662,39 +396,13 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: Update a record in unite_travail_2 table.
       requestBody:
         content:
           application/json:
             schema:
-              title: suivi_prod-unite_travail_2-no_rel
-              type: object
-              properties:
-                etampe:
-                  type: string
-                dt_c:
-                  type: string
-                dt_m:
-                  type: string
-                id:
-                  type: string
-                id_lot:
-                  type: string
-                date_prevue_fin:
-                  type: string
-                date_debut_fin:
-                  type: string
-                where_clause:
-                  type: string
-                geom:
-                  type: string
+              $ref: '#/components/schemas/suivi_prod-unite_travail_2-no_rel'
         description: "Seulement les attributs non-null seront mise à jour. Le ID doit toujours avoir une valeur car c'est la clef de recherche."
       tags:
         - suivi-prod
@@ -707,40 +415,14 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: Insert a new record in unite_travail_2
       operationId: post-suivi-prod-unite-travail
       requestBody:
         content:
           application/json:
             schema:
-              title: suivi_prod-unite_travail_2-no_rel
-              type: object
-              properties:
-                etampe:
-                  type: string
-                dt_c:
-                  type: string
-                dt_m:
-                  type: string
-                id:
-                  type: string
-                id_lot:
-                  type: string
-                date_prevue_fin:
-                  type: string
-                date_debut_fin:
-                  type: string
-                where_clause:
-                  type: string
-                geom:
-                  type: string
+              $ref: '#/components/schemas/suivi_prod-unite_travail_2-no_rel'
         description: ''
       tags:
         - suivi-prod
@@ -756,21 +438,7 @@ paths:
               schema:
                 type: array
                 items:
-                  title: suivi_prod-featuretype
-                  type: object
-                  properties:
-                    etampe:
-                      type: string
-                    dt_c:
-                      type: string
-                    dt_m:
-                      type: string
-                    id:
-                      type: string
-                    local_name:
-                      type: string
-                    spatial_repres_type_pna:
-                      type: integer
+                  $ref: '#/components/schemas/suivi_prod-featuretype'
       operationId: get-suivi-prod-featuretype-id
       description: Retreive a record from feature)type table.
       tags:
@@ -791,13 +459,7 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: Delete one record from feature_type table.
       tags:
         - suivi-prod
@@ -811,13 +473,7 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: Insert feature class inside feature_type table.
       requestBody:
         content:
@@ -825,21 +481,7 @@ paths:
             schema:
               type: array
               items:
-                title: suivi_prod-featuretype
-                type: object
-                properties:
-                  etampe:
-                    type: string
-                  dt_c:
-                    type: string
-                  dt_m:
-                    type: string
-                  id:
-                    type: string
-                  local_name:
-                    type: string
-                  spatial_repres_type_pna:
-                    type: integer
+                $ref: '#/components/schemas/suivi_prod-featuretype'
         description: ''
       tags:
         - suivi-prod
@@ -854,213 +496,8 @@ paths:
             application/json:
               schema:
                 oneOf:
-                  - title: suivi_prod-lot-full_rel
-                    type: object
-                    properties:
-                      lot:
-                        title: suivi_prod-lot-no_rel
-                        type: object
-                        properties:
-                          etampe:
-                            type: string
-                          dt_c:
-                            type: string
-                          dt_m:
-                            type: string
-                          id:
-                            type: string
-                          operateur:
-                            type: string
-                          date_debut:
-                            type: string
-                          date_fin:
-                            type: string
-                          theme_cl:
-                            type: integer
-                          type_travail_cl:
-                            type: integer
-                          statut_lot_cl:
-                            type: integer
-                      relation:
-                        type: object
-                        properties:
-                          executant:
-                            title: suivi_prod-executant
-                            type: object
-                            properties:
-                              etampe:
-                                type: string
-                              dt_c:
-                                type: string
-                              dt_m:
-                                type: string
-                              id:
-                                type: string
-                              id_contractant:
-                                type: string
-                              no_contrat:
-                                type: string
-                              prix_contrat:
-                                type: number
-                          unite_travail_2:
-                            type: array
-                            items:
-                              title: suivi_prod-unite_travail_2-full_rel
-                              type: object
-                              properties:
-                                unite_travail_2:
-                                  title: suivi_prod-unite_travail_2-no_rel
-                                  type: object
-                                  properties:
-                                    etampe:
-                                      type: string
-                                    dt_c:
-                                      type: string
-                                    dt_m:
-                                      type: string
-                                    id:
-                                      type: string
-                                    id_lot:
-                                      type: string
-                                    date_prevue_fin:
-                                      type: string
-                                    date_debut_fin:
-                                      type: string
-                                    where_clause:
-                                      type: string
-                                    geom:
-                                      type: string
-                                relation:
-                                  type: object
-                                  properties:
-                                    etape_ut:
-                                      type: array
-                                      items:
-                                        title: suivi_prod-etape_ut
-                                        type: object
-                                        properties:
-                                          etampe:
-                                            type: string
-                                          dt_c:
-                                            type: string
-                                          dt_m:
-                                            type: string
-                                          id:
-                                            type: string
-                                          id_unite_travail:
-                                            type: string
-                                          nom_etape_cl:
-                                            type: integer
-                                          description:
-                                            type: string
-                                          operateur:
-                                            type: string
-                                          date_debut:
-                                            type: string
-                                          date_fin:
-                                            type: string
-                                          statut_etape_cl:
-                                            type: integer
-                                    sous_unite_travail:
-                                      type: array
-                                      items:
-                                        title: suivi_prod-sous_unite_travail-full_rel
-                                        type: object
-                                        properties:
-                                          sous_unite_travail:
-                                            title: suivi_prod-sous_unite_travail-no_rel
-                                            type: object
-                                            properties:
-                                              etampe:
-                                                type: string
-                                              dt_c:
-                                                type: string
-                                              dt_m:
-                                                type: string
-                                              id:
-                                                type: string
-                                              id_unite_travail:
-                                                type: string
-                                              date_prevue_fin:
-                                                type: string
-                                              date_debut:
-                                                type: string
-                                              date_fin:
-                                                type: string
-                                          relation:
-                                            type: object
-                                            properties:
-                                              etape_sut:
-                                                type: array
-                                                items:
-                                                  title: suivi_prod-etape_sut
-                                                  type: object
-                                                  properties:
-                                                    etampe:
-                                                      type: string
-                                                    dt_c:
-                                                      type: string
-                                                    dt_m:
-                                                      type: string
-                                                    id:
-                                                      type: string
-                                                    id_unite_travail:
-                                                      type: string
-                                                    nom_etape_cl:
-                                                      type: integer
-                                                    description:
-                                                      type: string
-                                                    operateur:
-                                                      type: string
-                                                    date_debut:
-                                                      type: string
-                                                    date_fin:
-                                                      type: string
-                                                    statut_etape_cl:
-                                                      type: integer
-                                                    id_sous_unite_travail:
-                                                      type: string
-                          feature_type:
-                            type: array
-                            items:
-                              title: suivi_prod-featuretype
-                              type: object
-                              properties:
-                                etampe:
-                                  type: string
-                                dt_c:
-                                  type: string
-                                dt_m:
-                                  type: string
-                                id:
-                                  type: string
-                                local_name:
-                                  type: string
-                                spatial_repres_type_pna:
-                                  type: integer
-                  - title: suivi_prod-lot-no_rel
-                    type: object
-                    properties:
-                      etampe:
-                        type: string
-                      dt_c:
-                        type: string
-                      dt_m:
-                        type: string
-                      id:
-                        type: string
-                      operateur:
-                        type: string
-                      date_debut:
-                        type: string
-                      date_fin:
-                        type: string
-                      theme_cl:
-                        type: integer
-                      type_travail_cl:
-                        type: integer
-                      statut_lot_cl:
-                        type: integer
+                  - $ref: '#/components/schemas/suivi_prod-lot-full_rel'
+                  - $ref: '#/components/schemas/suivi_prod-lot-no_rel'
       operationId: get-suivi-prod-lot-id
       description: Retrieve a record from Lot table. By using the parameter full_relation=False you can retreive only the Lot record or by using full_relation=True you can retreive the Lot and all its dependencies (related table records).
       parameters:
@@ -1089,13 +526,7 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: Delete a record in Lot table.
       tags:
         - suivi-prod
@@ -1108,41 +539,13 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: Update a record in Lot table.
       requestBody:
         content:
           application/json:
             schema:
-              title: suivi_prod-lot-no_rel
-              type: object
-              properties:
-                etampe:
-                  type: string
-                dt_c:
-                  type: string
-                dt_m:
-                  type: string
-                id:
-                  type: string
-                operateur:
-                  type: string
-                date_debut:
-                  type: string
-                date_fin:
-                  type: string
-                theme_cl:
-                  type: integer
-                type_travail_cl:
-                  type: integer
-                statut_lot_cl:
-                  type: integer
+              $ref: '#/components/schemas/suivi_prod-lot-no_rel'
         description: Only not null attributes in the JSON body will get updated. The id must not be empty.
       tags:
         - suivi-prod
@@ -1156,41 +559,13 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: Insert a record in Lot table.
       requestBody:
         content:
           application/json:
             schema:
-              title: suivi_prod-lot-no_rel
-              type: object
-              properties:
-                etampe:
-                  type: string
-                dt_c:
-                  type: string
-                dt_m:
-                  type: string
-                id:
-                  type: string
-                operateur:
-                  type: string
-                date_debut:
-                  type: string
-                date_fin:
-                  type: string
-                theme_cl:
-                  type: integer
-                type_travail_cl:
-                  type: integer
-                statut_lot_cl:
-                  type: integer
+              $ref: '#/components/schemas/suivi_prod-lot-no_rel'
       tags:
         - suivi-prod
     parameters: []
@@ -1203,31 +578,7 @@ paths:
           content:
             application/json:
               schema:
-                title: suivi_prod-etape_ut
-                type: object
-                properties:
-                  etampe:
-                    type: string
-                  dt_c:
-                    type: string
-                  dt_m:
-                    type: string
-                  id:
-                    type: string
-                  id_unite_travail:
-                    type: string
-                  nom_etape_cl:
-                    type: integer
-                  description:
-                    type: string
-                  operateur:
-                    type: string
-                  date_debut:
-                    type: string
-                  date_fin:
-                    type: string
-                  statut_etape_cl:
-                    type: integer
+                $ref: '#/components/schemas/suivi_prod-etape_ut'
               examples:
                 exEtapeUT_01: {}
       operationId: get-suivi-prod-etape-ut-id
@@ -1249,13 +600,7 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: Delete a record in etape_ut table.
       tags:
         - suivi-prod
@@ -1268,43 +613,13 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: Update a record in etape_ut table.
       requestBody:
         content:
           application/json:
             schema:
-              title: suivi_prod-etape_ut
-              type: object
-              properties:
-                etampe:
-                  type: string
-                dt_c:
-                  type: string
-                dt_m:
-                  type: string
-                id:
-                  type: string
-                id_unite_travail:
-                  type: string
-                nom_etape_cl:
-                  type: integer
-                description:
-                  type: string
-                operateur:
-                  type: string
-                date_debut:
-                  type: string
-                date_fin:
-                  type: string
-                statut_etape_cl:
-                  type: integer
+              $ref: '#/components/schemas/suivi_prod-etape_ut'
         description: Only not null attributes in the JSON body will get updated. The id must not be empty.
       tags:
         - suivi-prod
@@ -1318,43 +633,13 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: Insert a new record in etape_ut table.
       requestBody:
         content:
           application/json:
             schema:
-              title: suivi_prod-etape_ut
-              type: object
-              properties:
-                etampe:
-                  type: string
-                dt_c:
-                  type: string
-                dt_m:
-                  type: string
-                id:
-                  type: string
-                id_unite_travail:
-                  type: string
-                nom_etape_cl:
-                  type: integer
-                description:
-                  type: string
-                operateur:
-                  type: string
-                date_debut:
-                  type: string
-                date_fin:
-                  type: string
-                statut_etape_cl:
-                  type: integer
+              $ref: '#/components/schemas/suivi_prod-etape_ut'
       tags:
         - suivi-prod
     parameters: []
@@ -1368,13 +653,7 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: Service intégrateur pour la création de métadonnées dans GeoSys.
       tags:
         - geosys
@@ -1382,44 +661,7 @@ paths:
         content:
           application/json:
             schema:
-              title: metadata_creation
-              type: object
-              properties:
-                env:
-                  type: string
-                theme:
-                  type: string
-                id_ut:
-                  type: string
-                nom_catalogue:
-                  type: string
-                prod_desc:
-                  type: string
-                description_projet:
-                  type: string
-                logfile:
-                  type: string
-                liste_id_source:
-                  type: array
-                  maxItems: 8
-                  items:
-                    type: string
-                liste_id_precision:
-                  type: array
-                  maxItems: 3
-                  items:
-                    type: string
-                liste_id_contraintes_legales:
-                  type: array
-                  maxItems: 3
-                  items:
-                    type: string
-              required:
-                - env
-                - theme
-                - id_ut
-                - nom_catalogue
-                - prod_desc
+              $ref: '#/components/schemas/metadata_creation'
   /geosys/valider-md:
     post:
       summary: ''
@@ -1430,13 +672,7 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: "Service intégrateur pour la validation d'un fichier de métadonnées."
       tags:
         - geosys
@@ -1444,20 +680,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              title: metadata_validation
-              type: object
-              properties:
-                env:
-                  type: string
-                theme:
-                  type: string
-                id_ut:
-                  type: string
-                fichier_json:
-                  type: string
-                  format: binary
-                logfile:
-                  type: string
+              $ref: '#/components/schemas/metadata_validation'
         description: ''
   '/securite/usager/{nom}':
     get:
@@ -1471,25 +694,13 @@ paths:
           content:
             application/json:
               schema:
-                title: message_erreur
-                type: object
-                properties:
-                  code:
-                    type: string
-                  message:
-                    type: string
+                $ref: '#/components/schemas/message_erreur'
         '404':
           description: Not Found
           content:
             application/json:
               schema:
-                title: message_erreur
-                type: object
-                properties:
-                  code:
-                    type: string
-                  message:
-                    type: string
+                $ref: '#/components/schemas/message_erreur'
       tags:
         - securite
     parameters:
@@ -1515,11 +726,7 @@ paths:
         content:
           application/json:
             schema:
-              title: geodata_edition
-              type: object
-              properties:
-                fichier:
-                  type: string
+              $ref: '#/components/schemas/geodata_edition'
         description: ''
       tags:
         - data
@@ -1533,11 +740,7 @@ paths:
         content:
           application/json:
             schema:
-              title: geodata_edition
-              type: object
-              properties:
-                fichier:
-                  type: string
+              $ref: '#/components/schemas/geodata_edition'
         description: ''
       tags:
         - data
@@ -1550,13 +753,7 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       tags:
         - data
   /geodata:
@@ -1570,38 +767,14 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       operationId: get-geodata
       description: Extraction de donnée à sens unique. La donnée extraite ne reviendra pas.
       requestBody:
         content:
           application/json:
             schema:
-              title: geodata_lecture
-              type: object
-              description: ''
-              properties:
-                env:
-                  type: string
-                theme:
-                  type: string
-                id_lot:
-                  type: string
-                clip:
-                  type: string
-                  enum:
-                    - oui
-                    - non
-                where_clause:
-                  type: string
-                geom:
-                  type: string
+              $ref: '#/components/schemas/geodata_lecture'
   '/systeme/ressources/{theme}':
     parameters:
       - schema:
@@ -1626,11 +799,7 @@ paths:
           content:
             application/json:
               schema:
-                title: systeme_ress_retour
-                type: object
-                properties:
-                  valeur:
-                    type: object
+                $ref: '#/components/schemas/systeme_ress_retour'
   /suivi-prod/planification:
     post:
       summary: ''
@@ -1641,31 +810,13 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       description: "Service intégrateur permettant la création, selon un thème, d'un lot et d'une unité de travail en un seul appel."
       requestBody:
         content:
           application/json:
             schema:
-              title: suivi_prod_planification
-              type: object
-              properties:
-                env:
-                  type: string
-                theme:
-                  type: string
-                id_lot:
-                  type: string
-                where_clause:
-                  type: string
-                geom:
-                  type: string
+              $ref: '#/components/schemas/suivi_prod_planification'
         description: ''
       tags:
         - suivi-prod
@@ -1679,13 +830,7 @@ paths:
           content:
             application/json:
               schema:
-                title: message_succes
-                type: object
-                properties:
-                  value:
-                    type: string
-                required:
-                  - value
+                $ref: '#/components/schemas/message_succes'
       tags:
         - securite
     parameters: []
@@ -1864,359 +1009,50 @@ components:
       type: object
       properties:
         sous_unite_travail:
-          title: suivi_prod-sous_unite_travail-no_rel
-          type: object
-          properties:
-            etampe:
-              type: string
-            dt_c:
-              type: string
-            dt_m:
-              type: string
-            id:
-              type: string
-            id_unite_travail:
-              type: string
-            date_prevue_fin:
-              type: string
-            date_debut:
-              type: string
-            date_fin:
-              type: string
+          $ref: '#/components/schemas/suivi_prod-sous_unite_travail-no_rel'
         relation:
           type: object
           properties:
             etape_sut:
               type: array
               items:
-                title: suivi_prod-etape_sut
-                type: object
-                properties:
-                  etampe:
-                    type: string
-                  dt_c:
-                    type: string
-                  dt_m:
-                    type: string
-                  id:
-                    type: string
-                  id_unite_travail:
-                    type: string
-                  nom_etape_cl:
-                    type: integer
-                  description:
-                    type: string
-                  operateur:
-                    type: string
-                  date_debut:
-                    type: string
-                  date_fin:
-                    type: string
-                  statut_etape_cl:
-                    type: integer
-                  id_sous_unite_travail:
-                    type: string
+                $ref: '#/components/schemas/suivi_prod-etape_sut'
     suivi_prod-unite_travail_2-full_rel:
       title: suivi_prod-unite_travail_2-full_rel
       type: object
       properties:
         unite_travail_2:
-          title: suivi_prod-unite_travail_2-no_rel
-          type: object
-          properties:
-            etampe:
-              type: string
-            dt_c:
-              type: string
-            dt_m:
-              type: string
-            id:
-              type: string
-            id_lot:
-              type: string
-            date_prevue_fin:
-              type: string
-            date_debut_fin:
-              type: string
-            where_clause:
-              type: string
-            geom:
-              type: string
+          $ref: '#/components/schemas/suivi_prod-unite_travail_2-no_rel'
         relation:
           type: object
           properties:
             etape_ut:
               type: array
               items:
-                title: suivi_prod-etape_ut
-                type: object
-                properties:
-                  etampe:
-                    type: string
-                  dt_c:
-                    type: string
-                  dt_m:
-                    type: string
-                  id:
-                    type: string
-                  id_unite_travail:
-                    type: string
-                  nom_etape_cl:
-                    type: integer
-                  description:
-                    type: string
-                  operateur:
-                    type: string
-                  date_debut:
-                    type: string
-                  date_fin:
-                    type: string
-                  statut_etape_cl:
-                    type: integer
+                $ref: '#/components/schemas/suivi_prod-etape_ut'
             sous_unite_travail:
               type: array
               items:
-                title: suivi_prod-sous_unite_travail-full_rel
-                type: object
-                properties:
-                  sous_unite_travail:
-                    title: suivi_prod-sous_unite_travail-no_rel
-                    type: object
-                    properties:
-                      etampe:
-                        type: string
-                      dt_c:
-                        type: string
-                      dt_m:
-                        type: string
-                      id:
-                        type: string
-                      id_unite_travail:
-                        type: string
-                      date_prevue_fin:
-                        type: string
-                      date_debut:
-                        type: string
-                      date_fin:
-                        type: string
-                  relation:
-                    type: object
-                    properties:
-                      etape_sut:
-                        type: array
-                        items:
-                          title: suivi_prod-etape_sut
-                          type: object
-                          properties:
-                            etampe:
-                              type: string
-                            dt_c:
-                              type: string
-                            dt_m:
-                              type: string
-                            id:
-                              type: string
-                            id_unite_travail:
-                              type: string
-                            nom_etape_cl:
-                              type: integer
-                            description:
-                              type: string
-                            operateur:
-                              type: string
-                            date_debut:
-                              type: string
-                            date_fin:
-                              type: string
-                            statut_etape_cl:
-                              type: integer
-                            id_sous_unite_travail:
-                              type: string
+                $ref: '#/components/schemas/suivi_prod-sous_unite_travail-full_rel'
     suivi_prod-lot-full_rel:
       title: suivi_prod-lot-full_rel
       type: object
       properties:
         lot:
-          title: suivi_prod-lot-no_rel
-          type: object
-          properties:
-            etampe:
-              type: string
-            dt_c:
-              type: string
-            dt_m:
-              type: string
-            id:
-              type: string
-            operateur:
-              type: string
-            date_debut:
-              type: string
-            date_fin:
-              type: string
-            theme_cl:
-              type: integer
-            type_travail_cl:
-              type: integer
-            statut_lot_cl:
-              type: integer
+          $ref: '#/components/schemas/suivi_prod-lot-no_rel'
         relation:
           type: object
           properties:
             executant:
-              title: suivi_prod-executant
-              type: object
-              properties:
-                etampe:
-                  type: string
-                dt_c:
-                  type: string
-                dt_m:
-                  type: string
-                id:
-                  type: string
-                id_contractant:
-                  type: string
-                no_contrat:
-                  type: string
-                prix_contrat:
-                  type: number
+              $ref: '#/components/schemas/suivi_prod-executant'
             unite_travail_2:
               type: array
               items:
-                title: suivi_prod-unite_travail_2-full_rel
-                type: object
-                properties:
-                  unite_travail_2:
-                    title: suivi_prod-unite_travail_2-no_rel
-                    type: object
-                    properties:
-                      etampe:
-                        type: string
-                      dt_c:
-                        type: string
-                      dt_m:
-                        type: string
-                      id:
-                        type: string
-                      id_lot:
-                        type: string
-                      date_prevue_fin:
-                        type: string
-                      date_debut_fin:
-                        type: string
-                      where_clause:
-                        type: string
-                      geom:
-                        type: string
-                  relation:
-                    type: object
-                    properties:
-                      etape_ut:
-                        type: array
-                        items:
-                          title: suivi_prod-etape_ut
-                          type: object
-                          properties:
-                            etampe:
-                              type: string
-                            dt_c:
-                              type: string
-                            dt_m:
-                              type: string
-                            id:
-                              type: string
-                            id_unite_travail:
-                              type: string
-                            nom_etape_cl:
-                              type: integer
-                            description:
-                              type: string
-                            operateur:
-                              type: string
-                            date_debut:
-                              type: string
-                            date_fin:
-                              type: string
-                            statut_etape_cl:
-                              type: integer
-                      sous_unite_travail:
-                        type: array
-                        items:
-                          title: suivi_prod-sous_unite_travail-full_rel
-                          type: object
-                          properties:
-                            sous_unite_travail:
-                              title: suivi_prod-sous_unite_travail-no_rel
-                              type: object
-                              properties:
-                                etampe:
-                                  type: string
-                                dt_c:
-                                  type: string
-                                dt_m:
-                                  type: string
-                                id:
-                                  type: string
-                                id_unite_travail:
-                                  type: string
-                                date_prevue_fin:
-                                  type: string
-                                date_debut:
-                                  type: string
-                                date_fin:
-                                  type: string
-                            relation:
-                              type: object
-                              properties:
-                                etape_sut:
-                                  type: array
-                                  items:
-                                    title: suivi_prod-etape_sut
-                                    type: object
-                                    properties:
-                                      etampe:
-                                        type: string
-                                      dt_c:
-                                        type: string
-                                      dt_m:
-                                        type: string
-                                      id:
-                                        type: string
-                                      id_unite_travail:
-                                        type: string
-                                      nom_etape_cl:
-                                        type: integer
-                                      description:
-                                        type: string
-                                      operateur:
-                                        type: string
-                                      date_debut:
-                                        type: string
-                                      date_fin:
-                                        type: string
-                                      statut_etape_cl:
-                                        type: integer
-                                      id_sous_unite_travail:
-                                        type: string
+                $ref: '#/components/schemas/suivi_prod-unite_travail_2-full_rel'
             feature_type:
               type: array
               items:
-                title: suivi_prod-featuretype
-                type: object
-                properties:
-                  etampe:
-                    type: string
-                  dt_c:
-                    type: string
-                  dt_m:
-                    type: string
-                  id:
-                    type: string
-                  local_name:
-                    type: string
-                  spatial_repres_type_pna:
-                    type: integer
+                $ref: '#/components/schemas/suivi_prod-featuretype'
     suivi_prod-etape_sut:
       title: suivi_prod-etape_sut
       type: object
